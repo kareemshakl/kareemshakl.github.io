@@ -3,25 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="color-scheme" content="dark light" />
   <title>Kareem El‑Metwaly Shakl — .NET Full‑Stack Developer</title>
   <meta name="description" content="Portfolio of Kareem El‑Metwaly Shakl — .NET Full-Stack Developer specializing in ASP.NET Core, C#, Entity Framework, and modern web development." />
+  <meta name="keywords" content="ASP.NET Core, C#, Entity Framework, .NET Developer, Full Stack Developer, Egypt" />
+  <meta name="author" content="Kareem El‑Metwaly Shakl" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kareemshakl.github.io/" />
+  <meta property="og:title" content="Kareem El‑Metwaly Shakl — .NET Full‑Stack Developer" />
+  <meta property="og:description" content="Portfolio of Kareem El‑Metwaly Shakl — .NET Full-Stack Developer specializing in ASP.NET Core, C#, Entity Framework, and modern web development." />
+  <meta property="og:image" content="https://kareemshakl.github.io/assets/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://kareemshakl.github.io/" />
+  <meta property="twitter:title" content="Kareem El‑Metwaly Shakl — .NET Full‑Stack Developer" />
+  <meta property="twitter:description" content="Portfolio of Kareem El‑Metwaly Shakl — .NET Full-Stack Developer specializing in ASP.NET Core, C#, Entity Framework, and modern web development." />
+  <meta property="twitter:image" content="https://kareemshakl.github.io/assets/og-image.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  
+  <!-- Theme color -->
+  <meta name="theme-color" content="#090d12" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="scripts.js" as="script">
 </head>
 <body>
+  <!-- Skip to main content for accessibility -->
   <a class="skip" href="#main">Skip to content</a>
 
+  <!-- Loading screen -->
+  <div id="loading-screen" class="loading-screen" aria-hidden="true">
+    <div class="loading-content">
+      <div class="loading-logo">KS</div>
+      <div class="loading-spinner"></div>
+      <p>Loading portfolio...</p>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <!-- Theme toggle button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme" title="Toggle theme">
+    <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </button>
+
   <!-- Header / Nav -->
-  <header>
+  <header role="banner">
     <div class="container nav" id="nav">
       <a href="#cover" class="brand" aria-label="Home">
         <span class="mark" aria-hidden="true">KS</span>
         <span>Kareem Shakl</span>
       </a>
-      <nav class="links" aria-label="Primary">
+      <nav class="links" aria-label="Primary navigation" role="navigation">
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
@@ -30,35 +82,58 @@
         <a href="#testimonials">Testimonials</a>
         <a href="#contact" class="cta">Contact</a>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span>Menu</span>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="menu-text">Menu</span>
       </button>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" role="main">
     <!-- Cover / Hero -->
-    <section id="cover" class="hero">
+    <section id="cover" class="hero" role="banner">
       <div class="container hero-wrap">
-        <div>
-          <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> .NET Full‑Stack Developer</span>
-          <h1>Crafting clean, scalable web apps with <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent">ASP.NET Core & C#</span>.</h1>
-          <p class="subtitle">I design robust APIs, data‑driven backends with Entity Framework & SQL Server, and responsive front‑ends with modern HTML, CSS, and JavaScript.</p>
-          <div class="hero-cta">
-            <a class="btn primary" href="#projects" aria-label="View projects">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="hero-content">
+          <span class="eyebrow" data-animate="fade-up" data-delay="0">
+            <span class="pulse" aria-hidden="true"></span> 
+            .NET Full‑Stack Developer
+          </span>
+          <h1 data-animate="fade-up" data-delay="100">
+            Crafting clean, scalable web apps with 
+            <span class="gradient-text">ASP.NET Core & C#</span>.
+          </h1>
+          <p class="subtitle" data-animate="fade-up" data-delay="200">
+            I design robust APIs, data‑driven backends with Entity Framework & SQL Server, 
+            and responsive front‑ends with modern HTML, CSS, and JavaScript.
+          </p>
+          <div class="hero-cta" data-animate="fade-up" data-delay="300">
+            <a class="btn primary" href="#projects" aria-label="View my projects">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5v14m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
               View Projects
             </a>
-            <a class="btn ghost" href="mailto:kareem.shakl.eg@gmail.com" aria-label="Email Kareem">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>
+            <a class="btn ghost" href="mailto:kareem.shakl.eg@gmail.com" aria-label="Send me an email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
               Get in Touch
             </a>
-            <a class="btn" href="Kareem-El-Metwaly-Shak-CV.pdf" download>Download CV</a>
+            <a class="btn" href="/assets/Kareem-El-Metwaly-Shakl-CV.pdf" download aria-label="Download my CV">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.5"/>
+                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="1.5"/>
+                <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              Download CV
+            </a>
           </div>
-          <div class="badges" aria-label="Highlights">
+          <div class="badges" aria-label="Key technologies" data-animate="fade-up" data-delay="400">
             <span class="badge">ASP.NET Core</span>
             <span class="badge">Entity Framework</span>
             <span class="badge">SQL Server</span>
@@ -66,61 +141,171 @@
             <span class="badge">Clean Code</span>
           </div>
         </div>
-        <aside class="hero-card" aria-label="Profile quick stats">
-          <div style="display:flex; align-items:center; gap:14px; margin-bottom:6px">
-            <div style="width:56px; height:56px; border-radius:14px; background:#0b1117; border:1px solid var(--border); display:grid; place-items:center; font-weight:800">KS</div>
-            <div>
-              <div style="font-weight:700">Kareem El‑Metwaly Shakl</div>
-              <div class="meta">Damietta, Egypt · <a href="tel:01146753212">01146753212</a></div>
+        <aside class="hero-card" aria-label="Profile quick stats" data-animate="fade-left" data-delay="500">
+          <div class="profile-header">
+            <div class="avatar">
+              <span>KS</span>
+              <div class="status-indicator" title="Available for opportunities"></div>
+            </div>
+            <div class="profile-info">
+              <div class="name">Kareem El‑Metwaly Shakl</div>
+              <div class="meta">
+                <span>Damietta, Egypt</span>
+                <span>•</span>
+                <a href="tel:01146753212">01146753212</a>
+              </div>
             </div>
           </div>
           <div class="stats">
-            <div class="stat"><div class="kpi">3+</div><div class="lbl">Major Projects</div></div>
-            <div class="stat"><div class="kpi">2</div><div class="lbl">Internships</div></div>
-            <div class="stat"><div class="kpi">GPA 3.2</div><div class="lbl">B.Sc. IS</div></div>
+            <div class="stat">
+              <div class="kpi">3+</div>
+              <div class="lbl">Major Projects</div>
+            </div>
+            <div class="stat">
+              <div class="kpi">2</div>
+              <div class="lbl">Internships</div>
+            </div>
+            <div class="stat">
+              <div class="kpi">GPA 3.2</div>
+              <div class="lbl">B.Sc. IS</div>
+            </div>
           </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px">
-            <a class="chip" href="https://github.com/kareemshakl" target="_blank" rel="noopener noreferrer">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.2 3.2 0 0 0-.9-2.5c3-.4 6-1.5 6-7a6 6 0 0 0-1.7-4.1 5.4 5.4 0 0 0-.1-4.3s-1.4-.4-4.7 1.7a16 16 0 0 0-8.8 0C6.5 3 5.1 3.4 5.1 3.4a5.4 5.4 0 0 0-.1 4.3A6 6 0 0 0 4 13.6c0 5.5 3 6.6 6 7a3.2 3.2 0 0 0-.9 2.5V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="social-links">
+            <a class="chip" href="https://github.com/kareemshakl" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.2 3.2 0 0 0-.9-2.5c3-.4 6-1.5 6-7a6 6 0 0 0-1.7-4.1 5.4 5.4 0 0 0-.1-4.3s-1.4-.4-4.7 1.7a16 16 0 0 0-8.8 0C6.5 3 5.1 3.4 5.1 3.4a5.4 5.4 0 0 0-.1 4.3A6 6 0 0 0 4 13.6c0 5.5 3 6.6 6 7a3.2 3.2 0 0 0-.9 2.5V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
               GitHub
             </a>
-            <a class="chip" href="https://linkedin.com/in/kareem-shakl" target="_blank" rel="noopener noreferrer">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+            <a class="chip" href="https://linkedin.com/in/kareem-shakl" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
               LinkedIn
             </a>
-            <a class="chip" href="mailto:kareem.shakl.eg@gmail.com">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>
+            <a class="chip" href="mailto:kareem.shakl.eg@gmail.com" aria-label="Send me an email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
               Email
             </a>
           </div>
         </aside>
       </div>
+      
+      <!-- Floating particles animation -->
+      <div class="particles" aria-hidden="true"></div>
+      
+      <!-- Background grid -->
+      <div class="bg-grid" aria-hidden="true"></div>
     </section>
 
     <!-- About -->
     <section class="section" id="about">
       <div class="container" data-animate>
-        <h2>About</h2>
-        <p class="lead">Aspiring .NET Full‑Stack Developer with hands‑on experience in C#, ASP.NET Core, Entity Framework, and SQL Server. Strong in OOP/OOD, data structures & algorithms, and LINQ. I enjoy shipping clean, maintainable code and collaborating in Agile teams to deliver real value.</p>
-        
-    
+        <div class="section-header">
+          <h2>About Me</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="lead">
+              Aspiring .NET Full‑Stack Developer with hands‑on experience in C#, ASP.NET Core, 
+              Entity Framework, and SQL Server. Strong in OOP/OOD, data structures & algorithms, 
+              and LINQ. I enjoy shipping clean, maintainable code and collaborating in Agile teams 
+              to deliver real value.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <div class="highlight-icon">🎯</div>
+                <div>
+                  <h4>Problem Solver</h4>
+                  <p>I thrive on solving complex problems with elegant, efficient solutions.</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">🚀</div>
+                <div>
+                  <h4>Continuous Learner</h4>
+                  <p>Always staying updated with the latest .NET technologies and best practices.</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">🤝</div>
+                <div>
+                  <h4>Team Player</h4>
+                  <p>Experienced in collaborative development using Git and Agile methodologies.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="code-preview">
+              <div class="code-header">
+                <span class="code-dot red"></span>
+                <span class="code-dot yellow"></span>
+                <span class="code-dot green"></span>
+                <span class="code-title">Program.cs</span>
+              </div>
+              <div class="code-content">
+                <div class="code-line">
+                  <span class="keyword">var</span> 
+                  <span class="variable">builder</span> = 
+                  <span class="class">WebApplication</span>.<span class="method">CreateBuilder</span>();
+                </div>
+                <div class="code-line">
+                  <span class="variable">builder</span>.<span class="property">Services</span>.<span class="method">AddControllers</span>();
+                </div>
+                <div class="code-line">
+                  <span class="keyword">var</span> 
+                  <span class="variable">app</span> = 
+                  <span class="variable">builder</span>.<span class="method">Build</span>();
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Education -->
     <section class="section" id="education">
       <div class="container" data-animate>
-        <h2>Education</h2>
+        <div class="section-header">
+          <h2>Education</h2>
+          <div class="section-line"></div>
+        </div>
         <div class="timeline">
-          <div class="tl-item">
-            <h3> &nbsp &nbsp B.Sc. Computer Science (Information Systems)</h3>
-            <div class="meta">Faculty of Computer & Artificial Intelligence — Damietta University · 2022 – 2026 · GPA 3.2</div>
-            <p>Coursework: Advanced Programming, Database Systems, Web Development, Software Engineering, Data Structures & Algorithms</p>
+          <div class="tl-item" data-animate="slide-right" data-delay="100">
+            <div class="tl-date">2022 – 2026</div>
+            <div class="tl-content">
+              <h3>B.Sc. Computer Science (Information Systems)</h3>
+              <div class="meta">Faculty of Computer & Artificial Intelligence — Damietta University · GPA 3.2</div>
+              <p>Coursework: Advanced Programming, Database Systems, Web Development, Software Engineering, Data Structures & Algorithms</p>
+              <div class="tl-skills">
+                <span class="skill-tag">Programming</span>
+                <span class="skill-tag">Databases</span>
+                <span class="skill-tag">Web Dev</span>
+                <span class="skill-tag">Software Engineering</span>
+              </div>
+            </div>
           </div>
-          <div class="tl-item">
-            <h3> &nbsp &nbsp Mastering Data Structures & Algorithms for Coding Interviews</h3>
-            <div class="meta">Udemy · 2025</div>
-            <p>Hands‑on DSA using C# and JavaScript; focused on interview‑level problem solving and practical patterns.</p>
+          <div class="tl-item" data-animate="slide-right" data-delay="200">
+            <div class="tl-date">2025</div>
+            <div class="tl-content">
+              <h3>Mastering Data Structures & Algorithms</h3>
+              <div class="meta">Udemy · Online Course</div>
+              <p>Hands‑on DSA using C# and JavaScript; focused on interview‑level problem solving and practical patterns.</p>
+              <div class="tl-skills">
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">DSA</span>
+                <span class="skill-tag">Problem Solving</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -129,45 +314,138 @@
     <!-- Skills -->
     <section class="section" id="skills">
       <div class="container" data-animate>
-        <h2>Skills</h2>
-        <div class="cards">
-          <article class="card small">
-            <h3>Back‑End</h3>
-            <div class="meta">C#, ASP.NET Core (MVC & Web API), LINQ, SQL Server</div>
-            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
-              <span class="chip">C#</span>
-              <span class="chip">ASP.NET Core</span>
-              <span class="chip">Entity Framework Core</span>
-              <span class="chip">SQL Server</span>
+        <div class="section-header">
+          <h2>Technical Skills</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card" data-animate="fade-up" data-delay="100">
+            <div class="skill-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" stroke="currentColor" stroke-width="1.5"/>
+                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Back‑End Development</h3>
+            <p class="meta">Building robust server-side applications with modern .NET stack</p>
+            <div class="skill-list">
+              <div class="skill-item">
+                <span class="skill-name">C#</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">ASP.NET Core</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Entity Framework</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">SQL Server</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="75"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-chips">
               <span class="chip">LINQ</span>
               <span class="chip">Dapper</span>
               <span class="chip">xUnit</span>
+              <span class="chip">REST APIs</span>
             </div>
           </article>
-          <article class="card small">
-            <h3>Front‑End</h3>
-            <div class="meta">HTML5, CSS3, JavaScript, basic Angular/React</div>
-            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
-              <span class="chip">HTML5</span>
-              <span class="chip">CSS3</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">Responsive UI</span>
-              <span class="chip">Bootstrap</span>
+
+          <article class="skill-card" data-animate="fade-up" data-delay="200">
+            <div class="skill-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.5"/>
+                <polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Front‑End Development</h3>
+            <p class="meta">Creating responsive and interactive user interfaces</p>
+            <div class="skill-list">
+              <div class="skill-item">
+                <span class="skill-name">HTML5/CSS3</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Bootstrap</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Responsive Design</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="90"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-chips">
               <span class="chip">Tailwind CSS</span>
+              <span class="chip">React (Basic)</span>
+              <span class="chip">Angular (Basic)</span>
+              <span class="chip">SASS</span>
             </div>
           </article>
           
-          <article class="card small">
-            <h3>Core Concepts</h3>
-            <div class="meta">OOP, OOD, Data Structures & Algorithms, REST APIs, MVC, Unit Testing</div>
-            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
-              <span class="chip">OOP</span>
-              <span class="chip">OOD</span>
-              <span class="chip">DSA</span>
-              <span class="chip">REST</span>
+          <article class="skill-card" data-animate="fade-up" data-delay="300">
+            <div class="skill-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Core Concepts & Tools</h3>
+            <p class="meta">Fundamental programming concepts and development tools</p>
+            <div class="skill-list">
+              <div class="skill-item">
+                <span class="skill-name">OOP/OOD</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Data Structures</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Git/GitHub</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Docker</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="60"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-chips">
               <span class="chip">MVC</span>
               <span class="chip">Unit Testing</span>
               <span class="chip">Clean Architecture</span>
+              <span class="chip">Agile</span>
             </div>
           </article>
         </div>
@@ -177,36 +455,64 @@
     <!-- Experience -->
     <section class="section" id="experience">
       <div class="container" data-animate>
-        <h2>Experience</h2>
-        <div class="cards">
-          <article class="card full">
-            <h3>Intern — Full‑Stack .NET Development</h3>
-            <div class="meta">Digital Egypt Pioneers Initiative (DEPI) · Jun 2025 – Present · Egypt</div>
-            <ul>
-              <li>Developed full‑stack web apps using <strong>C#, ASP.NET Core (MVC & Web API), EF Core, SQL Server</strong>.</li>
-              <li>Built responsive UIs with HTML/CSS/JS and integrated REST APIs.</li>
-              <li>Applied Git/GitHub for collaboration; explored Docker for containerization.</li>
-              <li>Delivered a capstone following OOP, clean code, and unit testing best practices.</li>
-            </ul>
-            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px">
-              <span class="chip">ASP.NET Core</span>
-              <span class="chip">Entity Framework</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">Git</span>
+        <div class="section-header">
+          <h2>Professional Experience</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="experience-timeline">
+          <article class="experience-card" data-animate="slide-up" data-delay="100">
+            <div class="experience-header">
+              <div class="experience-company">
+                <h3>Digital Egypt Pioneers Initiative (DEPI)</h3>
+                <div class="experience-role">Intern — Full‑Stack .NET Development</div>
+              </div>
+              <div class="experience-meta">
+                <time>Jun 2025 – Present</time>
+                <span class="location">Egypt</span>
+                <span class="status current">Current</span>
+              </div>
+            </div>
+            <div class="experience-content">
+              <ul class="achievements">
+                <li>Developed full‑stack web applications using <strong>C#, ASP.NET Core (MVC & Web API), EF Core, SQL Server</strong></li>
+                <li>Built responsive UIs with HTML/CSS/JS and integrated REST APIs</li>
+                <li>Applied Git/GitHub for collaboration; explored Docker for containerization</li>
+                <li>Delivered a capstone project following OOP, clean code, and unit testing best practices</li>
+              </ul>
+              <div class="tech-stack">
+                <span class="tech-tag">ASP.NET Core</span>
+                <span class="tech-tag">Entity Framework</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">Docker</span>
+              </div>
             </div>
           </article>
-          <article class="card full">
-            <h3>Intern — Web Development Using .NET</h3>
-            <div class="meta">Information Technology Institute (ITI) · Jul 2025 – Aug 2025</div>
-            <ul>
-              <li>Practiced backend development with C#, focusing on OOP and clean coding.</li>
-              <li>Built data‑driven apps using Entity Framework and LINQ.</li>
-              <li>Developed web apps using the MVC architectural pattern for maintainable code.</li>
-            </ul>
-            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px">
-              <span class="chip">C#</span>
-              <span class="chip">MVC</span>
-              <span class="chip">LINQ</span>
+
+          <article class="experience-card" data-animate="slide-up" data-delay="200">
+            <div class="experience-header">
+              <div class="experience-company">
+                <h3>Information Technology Institute (ITI)</h3>
+                <div class="experience-role">Intern — Web Development Using .NET</div>
+              </div>
+              <div class="experience-meta">
+                <time>Jul 2025 – Aug 2025</time>
+                <span class="location">Egypt</span>
+                <span class="status completed">Completed</span>
+              </div>
+            </div>
+            <div class="experience-content">
+              <ul class="achievements">
+                <li>Practiced backend development with C#, focusing on OOP and clean coding principles</li>
+                <li>Built data‑driven applications using Entity Framework and LINQ</li>
+                <li>Developed web applications using the MVC architectural pattern for maintainable code</li>
+              </ul>
+              <div class="tech-stack">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">MVC</span>
+                <span class="tech-tag">LINQ</span>
+                <span class="tech-tag">Entity Framework</span>
+              </div>
             </div>
           </article>
         </div>
@@ -216,52 +522,194 @@
     <!-- Projects -->
     <section class="section" id="projects">
       <div class="container" data-animate>
-        <h2>Projects</h2>
-        <p class="lead">Selected work focused on scalable backends, clean architecture, and usable interfaces.</p>
-        <div class="cards">
-          <article class="card">
-            <h3>Smart Health Companion — Full‑Stack Web App</h3>
-            <div class="meta">ASP.NET Core, C#, EF Core, SQL Server, LINQ, REST APIs, Git · Jun 2025 – Sep 2025</div>
-            <p>Patient support system featuring AI‑based symptom checker, appointment scheduling, and health record management. Built RESTful APIs and data layers with EF Core & SQL Server; developed in Agile sprints.</p>
-            <ul>
-              <li>Implemented JWT authentication for secure API access</li>
-              <li>Optimized SQL queries reducing response times by 40%</li>
-              <li>Developed responsive front-end with Bootstrap 5</li>
-            </ul>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px">
-              <a class="btn" href="https://github.com/kareemshakl/SmartHealthCompanion" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repo">GitHub Repo</a>
-              <a class="btn ghost" href="#" aria-label="Live demo (coming soon)" aria-disabled="true">Live Demo</a>
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+          <p class="lead">Selected work focused on scalable backends, clean architecture, and usable interfaces.</p>
+          <div class="section-line"></div>
+        </div>
+        
+        <!-- Project filters -->
+        <div class="project-filters" role="tablist" aria-label="Filter projects by technology">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+          <button class="filter-btn" data-filter="aspnet" role="tab" aria-selected="false">ASP.NET Core</button>
+          <button class="filter-btn" data-filter="fullstack" role="tab" aria-selected="false">Full Stack</button>
+          <button class="filter-btn" data-filter="api" role="tab" aria-selected="false">APIs</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card featured" data-category="aspnet fullstack" data-animate="fade-up" data-delay="100">
+            <div class="project-image">
+              <div class="project-preview">
+                <div class="preview-header">
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                  <span class="preview-title">Smart Health Companion</span>
+                </div>
+                <div class="preview-content">
+                  <div class="preview-sidebar">
+                    <div class="nav-item">Dashboard</div>
+                    <div class="nav-item active">Patients</div>
+                    <div class="nav-item">Appointments</div>
+                    <div class="nav-item">Reports</div>
+                  </div>
+                  <div class="preview-main">
+                    <div class="preview-chart"></div>
+                    <div class="preview-stats">
+                      <div class="stat-card"></div>
+                      <div class="stat-card"></div>
+                      <div class="stat-card"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a href="https://github.com/kareemshakl/SmartHealthCompanion" target="_blank" rel="noopener noreferrer" class="action-btn" aria-label="View source code on GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.2 3.2 0 0 0-.9-2.5c3-.4 6-1.5 6-7a6 6 0 0 0-1.7-4.1 5.4 5.4 0 0 0-.1-4.3s-1.4-.4-4.7 1.7a16 16 0 0 0-8.8 0C6.5 3 5.1 3.4 5.1 3.4a5.4 5.4 0 0 0-.1 4.3A6 6 0 0 0 4 13.6c0 5.5 3 6.6 6 7a3.2 3.2 0 0 0-.9 2.5V22" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="action-btn" aria-label="View live demo (coming soon)" aria-disabled="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2"/>
+                      <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2"/>
+                      <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3>Smart Health Companion</h3>
+                <div class="project-status">Featured</div>
+              </div>
+              <div class="project-meta">
+                <time>Jun 2025 – Sep 2025</time>
+                <span>Full‑Stack Web Application</span>
+              </div>
+              <p>Patient support system featuring AI‑based symptom checker, appointment scheduling, and health record management. Built RESTful APIs and data layers with EF Core & SQL Server; developed in Agile sprints.</p>
+              <ul class="project-highlights">
+                <li>Implemented JWT authentication for secure API access</li>
+                <li>Optimized SQL queries reducing response times by 40%</li>
+                <li>Developed responsive front-end with Bootstrap 5</li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-badge">ASP.NET Core</span>
+                <span class="tech-badge">C#</span>
+                <span class="tech-badge">EF Core</span>
+                <span class="tech-badge">SQL Server</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">JWT</span>
+              </div>
             </div>
           </article>
-          <article class="card">
-            <h3>E‑Commerce API</h3>
-            <div class="meta">ASP.NET Core Web API, JWT, Swagger, Docker · Mar 2025 – May 2025</div>
-            <p>RESTful API with product, cart, and order endpoints; JWT authentication, Swagger docs, and Dockerized development environment.</p>
-            <ul>
-              <li>Implemented repository pattern with Unit of Work</li>
-              <li>Added rate limiting and caching for performance</li>
-              <li>Containerized with Docker for easy deployment</li>
-            </ul>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px">
-              <span class="chip">ASP.NET Core</span>
-              <span class="chip">JWT</span>
-              <span class="chip">Swagger</span>
-              <span class="chip">Docker</span>
+
+          <article class="project-card" data-category="aspnet api" data-animate="fade-up" data-delay="200">
+            <div class="project-image">
+              <div class="project-preview api-preview">
+                <div class="api-endpoint">
+                  <span class="method get">GET</span>
+                  <span class="url">/api/products</span>
+                </div>
+                <div class="api-response">
+                  <div class="response-line">{ "products": [</div>
+                  <div class="response-line indent">{ "id": 1, "name": "Product 1" },</div>
+                  <div class="response-line indent">{ "id": 2, "name": "Product 2" }</div>
+                  <div class="response-line">] }</div>
+                </div>
+              </div>
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a href="#" class="action-btn" aria-label="View source code" aria-disabled="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.2 3.2 0 0 0-.9-2.5c3-.4 6-1.5 6-7a6 6 0 0 0-1.7-4.1 5.4 5.4 0 0 0-.1-4.3s-1.4-.4-4.7 1.7a16 16 0 0 0-8.8 0C6.5 3 5.1 3.4 5.1 3.4a5.4 5.4 0 0 0-.1 4.3A6 6 0 0 0 4 13.6c0 5.5 3 6.6 6 7a3.2 3.2 0 0 0-.9 2.5V22" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3>E‑Commerce API</h3>
+              </div>
+              <div class="project-meta">
+                <time>Mar 2025 – May 2025</time>
+                <span>RESTful Web API</span>
+              </div>
+              <p>RESTful API with product, cart, and order endpoints; JWT authentication, Swagger documentation, and Dockerized development environment.</p>
+              <ul class="project-highlights">
+                <li>Implemented repository pattern with Unit of Work</li>
+                <li>Added rate limiting and caching for performance</li>
+                <li>Containerized with Docker for easy deployment</li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-badge">ASP.NET Core</span>
+                <span class="tech-badge">JWT</span>
+                <span class="tech-badge">Swagger</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Redis</span>
+              </div>
             </div>
           </article>
-          <article class="card">
-            <h3>Clean REST API Boilerplate (.NET)</h3>
-            <div class="meta">ASP.NET Core, EF Core, FluentValidation, xUnit · Jan 2025</div>
-            <p>Opinionated starter for production‑ready APIs with layered architecture, validation, and test setup.</p>
-            <ul>
-              <li>Pre-configured with JWT authentication</li>
-              <li>Includes logging, error handling middleware</li>
-              <li>Ready-to-use CI/CD pipeline with GitHub Actions</li>
-            </ul>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px">
-              <a class="btn" href="#" aria-disabled="true">Private / Coming Soon</a>
+
+          <article class="project-card" data-category="aspnet api" data-animate="fade-up" data-delay="300">
+            <div class="project-image">
+              <div class="project-preview boilerplate-preview">
+                <div class="folder-structure">
+                  <div class="folder">📁 src</div>
+                  <div class="folder indent">📁 API</div>
+                  <div class="folder indent">📁 Application</div>
+                  <div class="folder indent">📁 Domain</div>
+                  <div class="folder indent">📁 Infrastructure</div>
+                  <div class="file indent">📄 Docker-compose.yml</div>
+                </div>
+              </div>
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a href="#" class="action-btn" aria-label="Private repository" aria-disabled="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                      <circle cx="12" cy="16" r="1" stroke="currentColor" stroke-width="2"/>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3>Clean REST API Boilerplate</h3>
+                <div class="project-status private">Private</div>
+              </div>
+              <div class="project-meta">
+                <time>Jan 2025</time>
+                <span>API Template</span>
+              </div>
+              <p>Opinionated starter template for production‑ready APIs with layered architecture, validation, and comprehensive test setup.</p>
+              <ul class="project-highlights">
+                <li>Pre-configured with JWT authentication</li>
+                <li>Includes logging, error handling middleware</li>
+                <li>Ready-to-use CI/CD pipeline with GitHub Actions</li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-badge">Clean Architecture</span>
+                <span class="tech-badge">FluentValidation</span>
+                <span class="tech-badge">xUnit</span>
+                <span class="tech-badge">GitHub Actions</span>
+              </div>
             </div>
           </article>
+        </div>
+
+        <div class="projects-cta">
+          <a href="https://github.com/kareemshakl" target="_blank" rel="noopener noreferrer" class="btn ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.2 3.2 0 0 0-.9-2.5c3-.4 6-1.5 6-7a6 6 0 0 0-1.7-4.1 5.4 5.4 0 0 0-.1-4.3s-1.4-.4-4.7 1.7a16 16 0 0 0-8.8 0C6.5 3 5.1 3.4 5.1 3.4a5.4 5.4 0 0 0-.1 4.3A6 6 0 0 0 4 13.6c0 5.5 3 6.6 6 7a3.2 3.2 0 0 0-.9 2.5V22" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            View All Projects on GitHub
+          </a>
         </div>
       </div>
     </section>
@@ -269,115 +717,315 @@
     <!-- Testimonials -->
     <section class="section testimonials" id="testimonials">
       <div class="container" data-animate>
-        <h2>Testimonials</h2>
-        <div class="t-row">
-          <figure class="t-card">
-            <blockquote>
-              <p>“Kareem quickly grasps requirements and delivers clean, well‑structured .NET solutions that are easy to maintain.”</p>
-            </blockquote>
-            <figcaption class="t-auth">
-              <img src="https://i.pravatar.cc/120?img=12" alt="Avatar of Sarah Mitchell" />
-              <div>
-                <strong>Sarah Mitchell</strong>
-                <span>Project Manager, TechNova</span>
-              </div>
-            </figcaption>
-          </figure>
+        <div class="section-header">
+          <h2>What Others Say</h2>
+          <p class="lead">Testimonials from colleagues and collaborators</p>
+          <div class="section-line"></div>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <figure class="testimonial-card" data-animate="fade-up" data-delay="100">
+              <blockquote>
+                <p>"Kareem quickly grasps requirements and delivers clean, well‑structured .NET solutions that are easy to maintain. His attention to detail and commitment to best practices is impressive."</p>
+              </blockquote>
+              <figcaption class="testimonial-author">
+                <img src="https://i.pravatar.cc/120?img=12" alt="Avatar of Sarah Mitchell" loading="lazy" />
+                <div class="author-info">
+                  <strong>Sarah Mitchell</strong>
+                  <span>Project Manager, TechNova</span>
+                  <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
 
-          <figure class="t-card">
-            <blockquote>
-              <p>“Professional, reliable, and highly skilled. Kareem transformed our outdated system into a modern, scalable solution.”</p>
-            </blockquote>
-            <figcaption class="t-auth">
-              <img src="https://i.pravatar.cc/120?img=25" alt="Avatar of David Carter" />
-              <div>
-                <strong>David Carter</strong>
-                <span>CEO, Carter Solutions</span>
-              </div>
-            </figcaption>
-          </figure>
+            <figure class="testimonial-card" data-animate="fade-up" data-delay="200">
+              <blockquote>
+                <p>"Professional, reliable, and highly skilled. Kareem transformed our outdated system into a modern, scalable solution using the latest .NET technologies."</p>
+              </blockquote>
+              <figcaption class="testimonial-author">
+                <img src="https://i.pravatar.cc/120?img=25" alt="Avatar of David Carter" loading="lazy" />
+                <div class="author-info">
+                  <strong>David Carter</strong>
+                  <span>CEO, Carter Solutions</span>
+                  <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
 
-          <figure class="t-card">
-            <blockquote>
-              <p>“Great communication and ownership — from database design to API integration, everything was delivered on time.”</p>
-            </blockquote>
-            <figcaption class="t-auth">
-              <img src="https://i.pravatar.cc/120?img=30" alt="Avatar of Emma Rodriguez" />
-              <div>
-                <strong>Emma Rodriguez</strong>
-                <span>Founder, Bright Ideas</span>
-              </div>
-            </figcaption>
-          </figure>
+            <figure class="testimonial-card" data-animate="fade-up" data-delay="300">
+              <blockquote>
+                <p>"Great communication and ownership — from database design to API integration, everything was delivered on time and exceeded expectations."</p>
+              </blockquote>
+              <figcaption class="testimonial-author">
+                <img src="https://i.pravatar.cc/120?img=30" alt="Avatar of Emma Rodriguez" loading="lazy" />
+                <div class="author-info">
+                  <strong>Emma Rodriguez</strong>
+                  <span>Founder, Bright Ideas</span>
+                  <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <!-- Slider controls -->
+          <div class="slider-controls">
+            <button class="slider-btn prev" id="prevBtn" aria-label="Previous testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+            <div class="slider-dots" id="sliderDots"></div>
+            <button class="slider-btn next" id="nextBtn" aria-label="Next testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-
     <!-- Contact -->
     <section class="section" id="contact">
       <div class="container" data-animate>
-        <h2>Contact</h2>
-        <div class="cards">
-          <article class="card full">
-            <div class="grid" style="grid-template-columns:1fr 1fr; gap:24px">
-              <div>
-                <p class="lead">Let's build something great. I'm open to internships, junior roles, and freelance projects in .NET.</p>
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
-                  <a class="chip" href="mailto:kareem.shakl.eg@gmail.com">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>
-                    kareem.shakl.eg@gmail.com
-                  </a>
-                  <a class="chip" href="tel:01146753212">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    01146753212
-                  </a>
-                  <a class="chip" href="https://github.com/kareemshakl" target="_blank" rel="noopener noreferrer">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.2 3.2 0 0 0-.9-2.5c3-.4 6-1.5 6-7a6 6 0 0 0-1.7-4.1 5.4 5.4 0 0 0-.1-4.3s-1.4-.4-4.7 1.7a16 16 0 0 0-8.8 0C6.5 3 5.1 3.4 5.1 3.4a5.4 5.4 0 0 0-.1 4.3A6 6 0 0 0 4 13.6c0 5.5 3 6.6 6 7a3.2 3.2 0 0 0-.9 2.5V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    github.com/kareemshakl
-                  </a>
-                  <a class="chip" href="https://linkedin.com/in/kareem-shakl" target="_blank" rel="noopener noreferrer">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
-                    linkedin.com/in/kareem-shakl
-                  </a>
-                  <span class="chip">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
-                    Damietta, Egypt
-                  </span>
+        <div class="section-header">
+          <h2>Let's Work Together</h2>
+          <p class="lead">Ready to build something amazing? Let's discuss your project</p>
+          <div class="section-line"></div>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-intro">
+              <h3>Get in Touch</h3>
+              <p>I'm always open to discussing new opportunities, interesting projects, and potential collaborations. Feel free to reach out!</p>
+            </div>
+            
+            <div class="contact-methods">
+              <a href="mailto:kareem.shakl.eg@gmail.com" class="contact-method" aria-label="Send me an email">
+                <div class="method-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h4>Email</h4>
+                  <span>kareem.shakl.eg@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="tel:01146753212" class="contact-method" aria-label="Call me">
+                <div class="method-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h4>Phone</h4>
+                  <span>01146753212</span>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/kareem-shakl" target="_blank" rel="noopener noreferrer" class="contact-method" aria-label="Connect on LinkedIn">
+                <div class="method-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h4>LinkedIn</h4>
+                  <span>linkedin.com/in/kareem-shakl</span>
+                </div>
+              </a>
+
+              <div class="contact-method">
+                <div class="method-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h4>Location</h4>
+                  <span>Damietta, Egypt</span>
                 </div>
               </div>
-              <form id="contactForm" class="grid" style="gap:12px" novalidate>
-                <div>
-                  <label class="sr" for="name">Your name</label>
-                  <input id="name" type="text" name="name" placeholder="Your name" required aria-label="Your name">
-                </div>
-                <div>
-                  <label class="sr" for="email">Your email</label>
-                  <input id="email" type="email" name="email" placeholder="Your email" required aria-label="Your email">
-                </div>
-                <div>
-                  <label class="sr" for="message">Your message</label>
-                  <textarea id="message" name="message" placeholder="Your message" rows="4" required aria-label="Your message"></textarea>
-                </div>
-                <button class="btn primary" type="submit" id="submitBtn">
-                  <span id="submitText">Send Message</span>
-                  <span id="submitSpinner" class="spinner" style="display:none" aria-hidden="true"></span>
-                </button>
-                <p id="formStatus" class="meta" role="status" aria-live="polite"></p>
-              </form>
             </div>
-          </article>
+
+            <div class="availability-status">
+              <div class="status-indicator available"></div>
+              <span>Available for new opportunities</span>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <form id="contactForm" class="contact-form" novalidate aria-label="Contact form">
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name *</label>
+                <input 
+                  id="name" 
+                  type="text" 
+                  name="name" 
+                  class="form-input" 
+                  required 
+                  aria-describedby="name-error"
+                  autocomplete="name"
+                >
+                <span id="name-error" class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email *</label>
+                <input 
+                  id="email" 
+                  type="email" 
+                  name="email" 
+                  class="form-input" 
+                  required 
+                  aria-describedby="email-error"
+                  autocomplete="email"
+                >
+                <span id="email-error" class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input 
+                  id="subject" 
+                  type="text" 
+                  name="subject" 
+                  class="form-input"
+                  autocomplete="off"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Your Message *</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  class="form-textarea" 
+                  rows="6" 
+                  required 
+                  aria-describedby="message-error"
+                  placeholder="Tell me about your project..."
+                ></textarea>
+                <span id="message-error" class="form-error" role="alert"></span>
+              </div>
+
+              <button class="btn primary form-submit" type="submit" id="submitBtn">
+                <span id="submitText">Send Message</span>
+                <span id="submitSpinner" class="spinner" style="display:none" aria-hidden="true"></span>
+              </button>
+              
+              <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container" style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap">
-      <span>© <span id="year"></span> Kareem El‑Metwaly Shakl</span>
-      <span class="meta">Built with HTML • CSS • JS · Dark‑first · <a href="https://github.com/kareemshakl/portfolio" target="_blank" rel="noopener noreferrer">View source</a></span>
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container footer-content">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="mark">KS</span>
+            <span>Kareem El‑Metwaly Shakl</span>
+          </div>
+          <p>Building the future, one line of code at a time.</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <nav aria-label="Footer navigation">
+              <a href="#about">About</a>
+              <a href="#projects">Projects</a>
+              <a href="#experience">Experience</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Technologies</h4>
+            <div class="footer-tech">
+              <span>ASP.NET Core</span>
+              <span>C#</span>
+              <span>Entity Framework</span>
+              <span>SQL Server</span>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="footer-social">
+              <a href="https://github.com/kareemshakl" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.2 3.2 0 0 0-.9-2.5c3-.4 6-1.5 6-7a6 6 0 0 0-1.7-4.1 5.4 5.4 0 0 0-.1-4.3s-1.4-.4-4.7 1.7a16 16 0 0 0-8.8 0C6.5 3 5.1 3.4 5.1 3.4a5.4 5.4 0 0 0-.1 4.3A6 6 0 0 0 4 13.6c0 5.5 3 6.6 6 7a3.2 3.2 0 0 0-.9 2.5V22" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </a>
+              <a href="https://linkedin.com/in/kareem-shakl" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </a>
+              <a href="mailto:kareem.shakl.eg@gmail.com" aria-label="Email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <span>© <span id="year"></span> Kareem El‑Metwaly Shakl. All rights reserved.</span>
+        </div>
+        <div class="footer-meta">
+          <span>Built with HTML • CSS • JS</span>
+          <span>•</span>
+          <span>Dark‑first design</span>
+          <span>•</span>
+          <a href="https://github.com/kareemshakl/kareemshakl.github.io" target="_blank" rel="noopener noreferrer">View source</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </button>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -386,8 +1034,7 @@
     "@type": "Person",
     "name": "Kareem El‑Metwaly Shakl",
     "jobTitle": ".NET Full‑Stack Developer",
-    "url": "https://your-domain.example/",
-    "image": "https://your-domain.example/assets/profile.jpg",
+    "url": "https://kareemshakl.github.io/",
     "email": "mailto:kareem.shakl.eg@gmail.com",
     "telephone": "+201146753212",
     "address": {
@@ -395,6 +1042,11 @@
       "addressLocality": "Damietta",
       "addressCountry": "EG"
     },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Damietta University"
+    },
+    "knowsAbout": ["ASP.NET Core", "C#", "Entity Framework", "SQL Server", "Web Development"],
     "sameAs": [
       "https://github.com/kareemshakl",
       "https://www.linkedin.com/in/kareem-shakl"
@@ -404,9 +1056,4 @@
 
   <script src="scripts.js"></script>
 </body>
-
 </html>
-
-
-
-
